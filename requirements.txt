@@ -1,0 +1,6 @@
+Django==4.2.5
+drf-spectacular==0.24.1
+djangorestframework==3.14.0
+requests==2.31.0
+django-pymemcache==1.0.0
+drf-spectacular==0.24.1

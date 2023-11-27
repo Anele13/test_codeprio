@@ -1,0 +1,20 @@
+[
+    {
+        "model": "cuenta.cuenta",
+        "pk": 1,
+        "fields": {
+            "uid": "a20419db-884b-4dcb-a0a3-4e71bb3dca81",
+            "cliente": 1,
+            "saldo": 100.50
+        }
+    },
+    {
+        "model": "cuenta.cuenta",
+        "pk": 2,
+        "fields": {
+            "uid": "e3f34bd3-1a28-4ddc-bef7-3a7802bceda2",
+            "cliente": 2,
+            "saldo": 50.25
+        }
+    }
+]

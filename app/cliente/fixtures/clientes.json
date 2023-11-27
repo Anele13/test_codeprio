@@ -1,0 +1,18 @@
+[
+    {
+        "model": "cliente.cliente",
+        "pk": 1,
+        "fields": {
+            "nombre": "Cliente 1",
+            "categorias": [1, 2]
+        }
+    },
+    {
+        "model": "cliente.cliente",
+        "pk": 2,
+        "fields": {
+            "nombre": "Cliente 2",
+            "categorias": [2]
+        }
+    }
+]
