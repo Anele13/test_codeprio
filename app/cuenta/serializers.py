@@ -11,6 +11,8 @@ class MovimientoCreateSerializer(serializers.ModelSerializer):
             'importe'
         )
     
+    def create(self, validated_data):
+        return Movimiento.create(validated_data)
 
 class MovimientoSerializer(serializers.ModelSerializer):
     tipo_movimiento = serializers.SerializerMethodField()

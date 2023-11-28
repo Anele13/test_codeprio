@@ -3,6 +3,7 @@ from rest_framework import viewsets, mixins
 from .serializers import ClienteSerializer
 from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
+from rest_framework.response import Response
 
 class ClienteViewSet(viewsets.ModelViewSet):
     """
@@ -20,8 +21,8 @@ class ClienteViewSet(viewsets.ModelViewSet):
         """
         cliente_instance = self.get_object()
         categoria_id = request.data.get('categoria_id',None)
-        categoria_instance = get_object_or_404(RapiUser, pk=categoria_id)
-        cliente.categorias.add(categoria_instance)
+        categoria_instance = get_object_or_404(Categoria, pk=categoria_id)
+        cliente_instance.categorias.add(categoria_instance)
         serializer = self.get_serializer_class()
         data = serializer(cliente_instance).data
         return Response(data)

@@ -11,7 +11,7 @@ class MovimientoViewSet(mixins.CreateModelMixin,
                         viewsets.GenericViewSet):
     """
     Vista que permite crear, eliminar 
-    y obtener un movimiento 
+    y obtener un movimiento de cuenta
     """
     queryset = Movimiento.objects.all()
     serializer_class = MovimientoSerializer
@@ -21,17 +21,9 @@ class MovimientoViewSet(mixins.CreateModelMixin,
             return MovimientoCreateSerializer
         return self.serializer_class
 
-    def perform_create(self, serializer):
-        try:
-            return Movimiento.create(serializer.validated_data)
-        except MovimientoException as e:
-            exception = APIException(str(e))
-            exception.status_code = status.HTTP_400_BAD_REQUEST
-            raise exception
-    
     def perform_destroy(self, instance):
         try:
-            return Movimiento.delete(instance)
+            return Movimiento.remove(instance)
         except MovimientoException as e:
             exception = APIException(str(e))
             exception.status_code = status.HTTP_400_BAD_REQUEST

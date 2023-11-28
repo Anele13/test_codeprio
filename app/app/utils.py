@@ -21,7 +21,7 @@ class DolarsiAPI():
                 json = request.json()
                 valor = Decimal(
                     list(
-                        filter(lambda d: d['casa']['nombres'] == tipo_dolar, json)
+                        filter(lambda d: d['casa']['nombre'] == tipo_dolar, json)
                     )[0]['casa']['venta'].replace(',','.')
                 )
         except Exception as e:

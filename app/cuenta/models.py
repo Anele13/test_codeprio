@@ -103,7 +103,7 @@ class Movimiento(models.Model):
             return cls.objects.create(**data)
 
     @classmethod
-    def delete(cls, movimiento_object):
+    def remove(cls, movimiento_object):
         with transaction.atomic():
             cuenta = Cuenta.objects.select_for_update().get(id=movimiento_object.cuenta_id)
             if movimiento_object.tipo_movimiento == cls.INGRESO:
@@ -111,6 +111,6 @@ class Movimiento(models.Model):
                     raise SaldoInsuficienteException(cuenta.saldo)
                 cuenta.saldo -= movimiento_object.importe
             else:
-                cuenta.saldo -= movimiento_object.importe
+                cuenta.saldo += movimiento_object.importe
             cuenta.save(update_fields=['saldo'])
             return movimiento_object.delete()

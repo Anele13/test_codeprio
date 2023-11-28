@@ -26,13 +26,11 @@ Movimientos
 
 1. Clonar este repositorio
 
-2. cd test
-
-3. Construir con docker
+2. Construir con docker:
 
 - ```docker-compose up --build```
 
-4. Inicializar la base con datos:
+3. Inicializar la base con datos:
 
 - ```python manage.py loaddata categorias.json```
 - ```python manage.py loaddata clientes.json```
